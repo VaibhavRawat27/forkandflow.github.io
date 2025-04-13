@@ -1,126 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fork & Flow | Open Source Community</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
 
-    body {
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
+  body {
+    background-color: #0a0a0a;
+    color: #fff;
+  }
 
-    header {
-      padding: 2rem;
-      text-align: center;
-      background-color: #111111;
-    }
+  header {
+    text-align: center;
+    padding: 2rem 1rem 1rem;
+    background-color: #111;
+  }
 
-    header h1 {
-      font-size: 2.5rem;
-      color: #00FFD1;
-    }
+  header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00FFD1;
+  }
 
-    header p {
-      font-size: 1.2rem;
-      color: #ccc;
-      margin-top: 0.5rem;
-    }
+  header h1 {
+    font-size: 2.5rem;
+    color: #00FFD1;
+  }
 
-    section {
-      padding: 3rem 1.5rem;
-      max-width: 1000px;
-      margin: auto;
-    }
+  header p {
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-top: 0.5rem;
+  }
 
-    section h2 {
-      font-size: 2rem;
-      color: #00FFD1;
-      margin-bottom: 1rem;
-    }
+  .marquee {
+    background-color: #111;
+    padding: 1rem 0;
+    overflow: hidden;
+    position: relative;
+  }
 
-    section p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #ddd;
-    }
+  .marquee-content {
+    display: flex;
+    animation: scroll 30s linear infinite;
+    gap: 3rem;
+    align-items: center;
+  }
 
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #00FFD1;
-      color: #000;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      transition: background 0.3s;
-    }
+  /* Pause animation on hover */
+  .marquee:hover .marquee-content {
+    animation-play-state: paused;
+  }
 
-    .btn:hover {
-      background-color: #00c2a8;
-    }
+  .marquee-content a {
+    font-size: 3rem;
+    transition: transform 0.3s;
+    text-decoration: none;
+  }
 
-    footer {
-      background-color: #111111;
-      text-align: center;
-      padding: 1.5rem;
-      color: #999;
-      font-size: 0.9rem;
+  .marquee-content a:hover {
+    transform: scale(1.2);
+  }
+
+  /* Brand icon colors (applied globally) */
+  .marquee-content a:nth-child(1) i { color: #E4405F; }    /* Instagram */
+  .marquee-content a:nth-child(2) i { color: #0077B5; }    /* LinkedIn */
+  .marquee-content a:nth-child(3) i { color: #5865F2; }    /* Discord */
+  .marquee-content a:nth-child(4) i { color: #25D366; }    /* WhatsApp */
+  .marquee-content a:nth-child(5) i { color: #FF0000; }    /* YouTube */
+  .marquee-content a:nth-child(6) i { color: #333; }       /* GitHub */
+
+  @keyframes scroll {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+  }
+
+  section {
+    padding: 2.5rem 1.2rem;
+    max-width: 1000px;
+    margin: auto;
+  }
+
+  section h2 {
+    font-size: 2rem;
+    color: #00FFD1;
+    margin-bottom: 1rem;
+  }
+
+  section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #ddd;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #00FFD1;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s;
+  }
+
+  .btn:hover {
+    background-color: #00c2a8;
+  }
+
+  .team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .card {
+    background-color: #1a1a1a;
+    padding: 1.2rem;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s;
+  }
+
+  .card:hover {
+    transform: scale(1.05);
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+  }
+
+  footer {
+    background-color: #111;
+    text-align: center;
+    padding: 1.5rem;
+    color: #999;
+    font-size: 0.9rem;
+  }
+
+  footer a {
+    color: #00FFD1;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+  }
+
+  footer a:hover {
+    color: #fff;
+  }
+
+  /* Responsive tweaks for small screens */
+  @media screen and (max-width: 600px) {
+    .marquee-content a {
+      font-size: 24px;
+      margin: 0 15px;
     }
-  </style>
+  }
+</style>
+
 </head>
 <body>
   <header>
+    <img src="assets/logo.png" alt="Fork & Flow Logo">
     <h1>Fork & Flow</h1>
     <p>Open Source for Everyone | Learn • Build • Contribute</p>
   </header>
 
+  <!-- Marquee with clickable icons -->
+  <div class="marquee">
+    <div class="marquee-content">
+      <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a> 
+      <a href="https://www.linkedin.com/company/fork-and-flow-community/"><i class="fab fa-linkedin"></i></a> 
+      <a href="https://discord.gg/ndrh8Cqf"><i class="fab fa-discord"></i></a> 
+      <a href="https://chat.whatsapp.com/KMrPtkBVmEFCfe0pwNUD2g"><i class="fab fa-whatsapp"></i></a> 
+      <a href="https://www.youtube.com/@ForkandFlowCommunity"><i class="fab fa-youtube"></i></a> 
+      <a href="https://github.com/forkandflow"><i class="fab fa-github"></i></a>
+    </div>
+  </div>
+
   <section id="about">
-    <h2>About Us</h2>
-    <p>
-      Fork & Flow is a student-led open source community designed to help beginners dive into the world of collaborative coding. We empower learners to build meaningful projects, contribute to real-world software, and grow together as developers.
-    </p>
+    <h2>Who We Are</h2>
+    <p>Fork & Flow is a student-led open source community designed to help beginners dive into collaborative coding. We empower learners to build meaningful projects, contribute to real-world software, and grow together as developers.</p>
+  </section>
+
+  <section id="mission">
+    <h2>Mission</h2>
+    <p>To make open source accessible and enjoyable for students by providing guidance, opportunities, and a welcoming space for innovation.</p>
+  </section>
+
+  <section id="vision">
+    <h2>Vision</h2>
+    <p>To build a self-sustaining community where students globally collaborate, learn, and lead in open source development and innovation.</p>
   </section>
 
   <section id="join">
-    <h2>Join Our Community</h2>
-    <p>
-      Get access to open source projects, mentorship, and regular events. Whether you're just starting or already experienced, there's a place for you here.
-    </p>
+    <h2>Why Join Us?</h2>
+    <p>Get access to beginner-friendly projects, mentorship, workshops, events, and a network of passionate developers like you!</p>
     <a href="https://discord.gg/your-server-link" class="btn" target="_blank">Join Us on Discord</a>
   </section>
 
   <section id="projects">
     <h2>Our Projects</h2>
-    <p>
-      Contribute to beginner-friendly open source projects built by and for the community. We're actively working on tools, utilities, web apps, and more — all in public.
-    </p>
+    <p>We work on tools, web apps, and software aimed at solving real-world problems — and you're invited to contribute.</p>
     <a href="https://github.com/forkandflow" class="btn" target="_blank">Explore on GitHub</a>
   </section>
 
   <section id="contact">
-    <h2>Contact Us</h2>
-    <p>
-      Got questions, collab ideas, or want to invite us to your event? Reach out via email at <strong>hello.forkandflow@gmail.com</strong>
-    </p>
+    <h2>Write to Us</h2>
+    <p>Got ideas, questions, or feedback? Contact us at <strong>hello.forkandflow@gmail.com</strong></p>
+  </section>
+
+  <section id="team">
+    <h2>Our Core Team</h2>
+    <div class="team">
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+    </div>
+  </section>
+
+  <section id="events">
+    <h2>Events</h2>
+    <p>No upcoming events right now. Stay tuned!</p>
   </section>
 
   <footer>
-    &copy; 2025 Fork & Flow • Built with ❤️ for the community
+    &copy; 2025 Fork & Flow • Built with ❤️ for the community<br>
+    <p>Find us on: 
+      <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a> 
+      <a href="https://www.linkedin.com/company/fork-and-flow-community/"><i class="fab fa-linkedin"></i></a> 
+      <a href="https://discord.gg/ndrh8Cqf"><i class="fab fa-discord"></i></a> 
+      <a href="https://chat.whatsapp.com/KMrPtkBVmEFCfe0pwNUD2g"><i class="fab fa-whatsapp"></i></a> 
+      <a href="https://www.youtube.com/@ForkandFlowCommunity"><i class="fab fa-youtube"></i></a> 
+      <a href="https://github.com/forkandflow"><i class="fab fa-github"></i></a>
+    </p>
   </footer>
-
-  <script>
-    // You can add interactivity here later
-    console.log("Fork & Flow website loaded.");
-  </script>
 </body>
 </html>
