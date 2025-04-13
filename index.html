@@ -45,45 +45,7 @@
   }
 
   .marquee {
-    background-color: #111;
-    padding: 1rem 0;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .marquee-content {
-    display: flex;
-    animation: scroll 30s linear infinite;
-    gap: 3rem;
-    align-items: center;
-  }
-
-  /* Pause animation on hover */
-  .marquee:hover .marquee-content {
-    animation-play-state: paused;
-  }
-
-  .marquee-content a {
-    font-size: 3rem;
-    transition: transform 0.3s;
-    text-decoration: none;
-  }
-
-  .marquee-content a:hover {
-    transform: scale(1.2);
-  }
-
-  /* Brand icon colors (applied globally) */
-  .marquee-content a:nth-child(1) i { color: #E4405F; }    /* Instagram */
-  .marquee-content a:nth-child(2) i { color: #0077B5; }    /* LinkedIn */
-  .marquee-content a:nth-child(3) i { color: #5865F2; }    /* Discord */
-  .marquee-content a:nth-child(4) i { color: #25D366; }    /* WhatsApp */
-  .marquee-content a:nth-child(5) i { color: #FF0000; }    /* YouTube */
-  .marquee-content a:nth-child(6) i { color: #333; }       /* GitHub */
-
-  @keyframes scroll {
-    from { transform: translateX(100%); }
-    to { transform: translateX(-100%); }
+    display: none;
   }
 
   section {
@@ -164,15 +126,40 @@
     color: #fff;
   }
 
-  /* Responsive tweaks for small screens */
-  @media screen and (max-width: 600px) {
-    .marquee-content a {
-      font-size: 24px;
-      margin: 0 15px;
+  /* Show marquee on small screens */
+  @media screen and (max-width: 768px) {
+    .marquee {
+      display: block;
+      background-color: #111;
+      padding: 1rem 0;
     }
-  }
-</style>
 
+    .marquee-content {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .marquee-content a {
+      font-size: 2rem;
+      transition: transform 0.3s;
+      text-decoration: none;
+    }
+
+    .marquee-content a:hover {
+      transform: scale(1.2);
+    }
+
+    .marquee-content a:nth-child(1) i { color: #E4405F; }
+    .marquee-content a:nth-child(2) i { color: #0077B5; }
+    .marquee-content a:nth-child(3) i { color: #5865F2; }
+    .marquee-content a:nth-child(4) i { color: #25D366; }
+    .marquee-content a:nth-child(5) i { color: #FF0000; }
+    .marquee-content a:nth-child(6) i { color: #fff; }
+  }
+
+</style>
 </head>
 <body>
   <header>
@@ -181,7 +168,7 @@
     <p>Open Source for Everyone | Learn • Build • Contribute</p>
   </header>
 
-  <!-- Marquee with clickable icons -->
+  <!-- Mobile-only Marquee -->
   <div class="marquee">
     <div class="marquee-content">
       <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a> 
@@ -228,10 +215,10 @@
   <section id="team">
     <h2>Our Core Team</h2>
     <div class="team">
-      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
-      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
-      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
-      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
     </div>
   </section>
 
