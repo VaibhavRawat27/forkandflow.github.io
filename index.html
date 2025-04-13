@@ -4,145 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fork & Flow | Open Source Community</title>
+  <link rel="icon" href="logo.png" type="image/png"> <!-- Favicon Icon -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
 
-  body {
-    background-color: #0a0a0a;
-    color: #fff;
-  }
+    body {
+      background-color: #0a0a0a;
+      color: #fff;
+    }
 
-  header {
-    text-align: center;
-    padding: 2rem 1rem 1rem;
-    background-color: #111;
-  }
+    header {
+      text-align: center;
+      padding: 2rem 1rem 1rem;
+      background-color: #111;
+    }
 
-  header img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid #00FFD1;
-  }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid #00FFD1;
+    }
 
-  header h1 {
-    font-size: 2.5rem;
-    color: #00FFD1;
-  }
+    header h1 {
+      font-size: 2.5rem;
+      color: #00FFD1;
+    }
 
-  header p {
-    font-size: 1.1rem;
-    color: #ccc;
-    margin-top: 0.5rem;
-  }
+    header p {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin-top: 0.5rem;
+    }
 
-  .marquee {
-    display: none;
-  }
-
-  section {
-    padding: 2.5rem 1.2rem;
-    max-width: 1000px;
-    margin: auto;
-  }
-
-  section h2 {
-    font-size: 2rem;
-    color: #00FFD1;
-    margin-bottom: 1rem;
-  }
-
-  section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: #ddd;
-  }
-
-  .btn {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.8rem 1.5rem;
-    background-color: #00FFD1;
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background 0.3s;
-  }
-
-  .btn:hover {
-    background-color: #00c2a8;
-  }
-
-  .team {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .card {
-    background-color: #1a1a1a;
-    padding: 1.2rem;
-    border-radius: 10px;
-    text-align: center;
-    transition: transform 0.3s;
-  }
-
-  .card:hover {
-    transform: scale(1.05);
-  }
-
-  .card img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-  }
-
-  footer {
-    background-color: #111;
-    text-align: center;
-    padding: 1.5rem;
-    color: #999;
-    font-size: 0.9rem;
-  }
-
-  footer a {
-    color: #00FFD1;
-    margin: 0 0.5rem;
-    font-size: 1.2rem;
-    transition: color 0.3s;
-  }
-
-  footer a:hover {
-    color: #fff;
-  }
-
-  /* Show marquee on small screens */
-  @media screen and (max-width: 768px) {
     .marquee {
-      display: block;
       background-color: #111;
       padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
     }
 
     .marquee-content {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
+      animation: scroll 30s linear infinite;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    /* Pause animation on hover */
+    .marquee:hover .marquee-content {
+      animation-play-state: paused;
     }
 
     .marquee-content a {
-      font-size: 2rem;
+      font-size: 3rem;
       transition: transform 0.3s;
       text-decoration: none;
     }
@@ -151,15 +74,123 @@
       transform: scale(1.2);
     }
 
-    .marquee-content a:nth-child(1) i { color: #E4405F; }
-    .marquee-content a:nth-child(2) i { color: #0077B5; }
-    .marquee-content a:nth-child(3) i { color: #5865F2; }
-    .marquee-content a:nth-child(4) i { color: #25D366; }
-    .marquee-content a:nth-child(5) i { color: #FF0000; }
-    .marquee-content a:nth-child(6) i { color: #fff; }
-  }
+    /* Brand icon colors (applied globally) */
+    .marquee-content a:nth-child(1) i { color: #E4405F; }    /* Instagram */
+    .marquee-content a:nth-child(2) i { color: #0077B5; }    /* LinkedIn */
+    .marquee-content a:nth-child(3) i { color: #5865F2; }    /* Discord */
+    .marquee-content a:nth-child(4) i { color: #25D366; }    /* WhatsApp */
+    .marquee-content a:nth-child(5) i { color: #FF0000; }    /* YouTube */
+    .marquee-content a:nth-child(6) i { color: #333; }       /* GitHub */
 
-</style>
+    @keyframes scroll {
+      from { transform: translateX(100%); }
+      to { transform: translateX(-100%); }
+    }
+
+    section {
+      padding: 2.5rem 1.2rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      color: #00FFD1;
+      margin-bottom: 1rem;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #ddd;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #00FFD1;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #00c2a8;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: #1a1a1a;
+      padding: 1.2rem;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 1.5rem;
+      color: #999;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #00FFD1;
+      margin: 0 0.5rem;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Hide marquee on mobile devices */
+    @media screen and (max-width: 600px) {
+      .marquee {
+        display: none;
+      }
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      section h2 {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        padding: 0.7rem 1.2rem;
+      }
+
+      .team {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -168,14 +199,14 @@
     <p>Open Source for Everyone | Learn • Build • Contribute</p>
   </header>
 
-  <!-- Mobile-only Marquee -->
+  <!-- Marquee with clickable icons (desktop only) -->
   <div class="marquee">
     <div class="marquee-content">
-      <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a> 
-      <a href="https://www.linkedin.com/company/fork-and-flow-community/"><i class="fab fa-linkedin"></i></a> 
-      <a href="https://discord.gg/ndrh8Cqf"><i class="fab fa-discord"></i></a> 
-      <a href="https://chat.whatsapp.com/KMrPtkBVmEFCfe0pwNUD2g"><i class="fab fa-whatsapp"></i></a> 
-      <a href="https://www.youtube.com/@ForkandFlowCommunity"><i class="fab fa-youtube"></i></a> 
+      <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/fork-and-flow-community/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://discord.gg/ndrh8Cqf"><i class="fab fa-discord"></i></a>
+      <a href="https://chat.whatsapp.com/KMrPtkBVmEFCfe0pwNUD2g"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.youtube.com/@ForkandFlowCommunity"><i class="fab fa-youtube"></i></a>
       <a href="https://github.com/forkandflow"><i class="fab fa-github"></i></a>
     </div>
   </div>
@@ -215,10 +246,10 @@
   <section id="team">
     <h2>Our Core Team</h2>
     <div class="team">
-      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
-      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
-      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
-      <div class="card"><img src="logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
+      <div class="card"><img src="assets/logo.png" alt="TBD"><h3>TBD</h3><p>Role</p></div>
     </div>
   </section>
 
@@ -230,11 +261,11 @@
   <footer>
     &copy; 2025 Fork & Flow • Built with ❤️ for the community<br>
     <p>Find us on: 
-      <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a> 
-      <a href="https://www.linkedin.com/company/fork-and-flow-community/"><i class="fab fa-linkedin"></i></a> 
-      <a href="https://discord.gg/ndrh8Cqf"><i class="fab fa-discord"></i></a> 
-      <a href="https://chat.whatsapp.com/KMrPtkBVmEFCfe0pwNUD2g"><i class="fab fa-whatsapp"></i></a> 
-      <a href="https://www.youtube.com/@ForkandFlowCommunity"><i class="fab fa-youtube"></i></a> 
+      <a href="https://www.instagram.com/forkandflowcommunity/"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/company/fork-and-flow-community/"><i class="fab fa-linkedin"></i></a>
+      <a href="https://discord.gg/ndrh8Cqf"><i class="fab fa-discord"></i></a>
+      <a href="https://chat.whatsapp.com/KMrPtkBVmEFCfe0pwNUD2g"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://www.youtube.com/@ForkandFlowCommunity"><i class="fab fa-youtube"></i></a>
       <a href="https://github.com/forkandflow"><i class="fab fa-github"></i></a>
     </p>
   </footer>
