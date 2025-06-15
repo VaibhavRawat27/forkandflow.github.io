@@ -19,60 +19,66 @@
       height: 100%;
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: #f9fafb;
+      overflow: hidden;
+      position: relative;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
-      overflow: hidden;
+      color: #f9fafb;
+    }
+
+    /* Glass Container */
+    .glass-wrapper {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 40px 30px;
+      max-width: 90%;
+      width: 420px;
       text-align: center;
-      transition: background 0.5s ease;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      animation: zoomIn 1.5s ease-out;
     }
 
-    /* Logo */
     .logo {
-      width: 160px;
-      height: 160px;
-      object-fit: cover;
+      width: 120px;
+      height: 120px;
       border-radius: 50%;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.2);
-      margin-bottom: 30px;
-      animation: zoomIn 1.8s ease-out;
+      object-fit: cover;
+      margin-bottom: 25px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
 
-    /* Headline */
     h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
+      font-size: 2.5rem;
       color: #38bdf8;
-      text-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
-      margin-bottom: 12px;
-      animation: fadeIn 2s ease-out;
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
     }
 
-    /* Subtitle */
     p {
-      font-size: 1.2rem;
-      color: #cbd5e1;
-      margin-bottom: 60px;
-      animation: fadeIn 2.2s ease-out;
+      font-size: 1rem;
+      color: #e2e8f0;
+      margin-bottom: 30px;
     }
 
     footer {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: #94a3b8;
+      margin-top: 20px;
     }
 
     @keyframes zoomIn {
-      0% { transform: scale(0.6); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
+      from {
+        transform: scale(0.6);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
     }
 
     /* Particles */
@@ -87,16 +93,35 @@
 
     .particle {
       position: absolute;
-      background: rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 50%;
-      animation: float 10s infinite ease-in-out;
-      transition: transform 0.5s ease;
+      animation: float 12s infinite ease-in-out;
     }
 
     @keyframes float {
-      0% { transform: translateY(0) scale(1); opacity: 0.3; }
-      50% { transform: translateY(-50vh) scale(1.2); opacity: 0.7; }
-      100% { transform: translateY(0) scale(1); opacity: 0.3; }
+      0%   { transform: translateY(0) scale(1); opacity: 0.2; }
+      50%  { transform: translateY(-60vh) scale(1.3); opacity: 0.6; }
+      100% { transform: translateY(0) scale(1); opacity: 0.2; }
+    }
+
+    @media screen and (max-width: 480px) {
+      .glass-wrapper {
+        padding: 30px 20px;
+        width: 90%;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.95rem;
+      }
+
+      .logo {
+        width: 100px;
+        height: 100px;
+      }
     }
   </style>
 </head>
@@ -104,25 +129,25 @@
 <body>
   <div class="particles" id="particles-container"></div>
 
-  <img src="Vibrant-Summer-Slams-DSA25-Logo.png" alt="Event Logo" class="logo">
-
-  <h1>Coming Soon</h1>
-  <p>Stay tuned — Something exciting is on the way!</p>
-
-  <footer>&copy; 2025 Summer Slams DSA25. All rights reserved.</footer>
+  <div class="glass-wrapper">
+    <img src="Vibrant-Summer-Slams-DSA25-Logo.png" alt="Event Logo" class="logo">
+    <h1>Coming Soon</h1>
+    <p>Stay tuned — Something exciting is on the way!</p>
+    <footer>&copy; 2025 Summer Slams DSA25. All rights reserved.</footer>
+  </div>
 
   <script>
     const particleContainer = document.getElementById("particles-container");
 
-    for (let i = 0; i < 50; i++) {  // Increased particle count for a denser effect
+    for (let i = 0; i < 60; i++) {
       const p = document.createElement("div");
       p.classList.add("particle");
-      const size = Math.random() * 12 + 5;
+      const size = Math.random() * 10 + 4;
       p.style.width = `${size}px`;
       p.style.height = `${size}px`;
       p.style.left = `${Math.random() * 100}%`;
       p.style.top = `${Math.random() * 100}%`;
-      p.style.animationDuration = `${5 + Math.random() * 8}s`;
+      p.style.animationDuration = `${6 + Math.random() * 6}s`;
       particleContainer.appendChild(p);
     }
   </script>
