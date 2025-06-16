@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <title>Summer Slams DSA25</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-
   <style>
     * {
       margin: 0;
@@ -18,56 +15,85 @@
     html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      overflow-x: hidden;
       color: #f9fafb;
+      
     }
 
-    /* Glass Container */
+    body {
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .parallax {
+      /* The image used */
+      background-image: url('your-background-image.jpg'); /* Replace with your image URL */
+      height: 8vh; /* Full height */
+      background-attachment: fixed; /* Parallax effect */
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
     .glass-wrapper {
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 20px;
-      padding: 40px 30px;
-      max-width: 90%;
-      width: 420px;
+      padding: 35px 30px;
+      width: 90%;
+      max-width: 500px;
       text-align: center;
       backdrop-filter: blur(12px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
       animation: zoomIn 1.5s ease-out;
+      position: relative; /* Position relative for z-index */
+      z-index: 1; /* Ensure it appears above the background */
+      margin: 0 auto; /* Center the glass wrapper */
+      top: 0; /* Remove extra space above */
+            margin-bottom: 100px;
+
     }
 
     .logo {
-      width: 120px;
-      height: 120px;
+      width: 110px;
+      height: 110px;
       border-radius: 50%;
       object-fit: cover;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
       box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 2.3rem;
       color: #38bdf8;
       font-weight: 800;
       margin-bottom: 10px;
       text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
     }
 
-    p {
-      font-size: 1rem;
+    .section-title {
+      color: #38bdf8;
+      font-weight: 600;
+      margin-top: 20px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    ul {
+      list-style-type: disc;
+      text-align: left;
+      margin: 0 auto 15px;
+      padding-left: 20px;
       color: #e2e8f0;
-      margin-bottom: 30px;
+    }
+
+    p, li {
+      font-size: 0.98rem;
     }
 
     footer {
       font-size: 0.85rem;
       color: #94a3b8;
-      margin-top: 20px;
+      margin-top: 25px;
     }
 
     @keyframes zoomIn {
@@ -81,7 +107,6 @@
       }
     }
 
-    /* Particles */
     .particles {
       position: absolute;
       top: 0; left: 0;
@@ -106,39 +131,151 @@
 
     @media screen and (max-width: 480px) {
       .glass-wrapper {
-        padding: 30px 20px;
-        width: 90%;
+        padding: 25px 20px;
       }
 
       h1 {
         font-size: 2rem;
       }
 
-      p {
-        font-size: 0.95rem;
+      .section-title {
+        font-size: 1rem;
+      }
+
+      ul {
+        padding-left: 16px;
       }
 
       .logo {
-        width: 100px;
-        height: 100px;
+        width: 90px;
+        height: 90px;
       }
     }
   </style>
 </head>
 
 <body>
+  <div class="parallax"></div>
   <div class="particles" id="particles-container"></div>
 
   <div class="glass-wrapper">
+    <strong>Fork & Flow Community Presents</strong><br><br>
     <img src="Vibrant-Summer-Slams-DSA25-Logo.png" alt="Event Logo" class="logo">
-    <h1>Coming Soon</h1>
-    <p>Stay tuned — Something exciting is on the way!</p>
-    <footer>&copy; 2025 Summer Slams DSA25. All rights reserved.</footer>
+    <h1>Summer Slams DSA25</h1>
+    <p>A vibrant Data Structures & Algorithms event designed to challenge, learn, and grow your skills.</p>
+
+    <div class="section-title">🚀 About Event Rounds</div>
+<ul>
+  <li><strong>Round 1 (Mock Test):</strong> Practice-only MCQ & coding quiz. This round is <em>unranked</em> and helps participants warm up before the main round.</li>
+  <li><strong>Round 2 (Ranked Challenge):</strong> Solve 5 DSA coding questions of varying difficulty. This is the main round where winners are decided based on performance.</li>
+</ul>
+
+
+    <div class="section-title">🏆 Rewards</div>
+    <ul>
+      <li><strong>1st Place:</strong> Victory Certificate + Featured on Winner Wall + Fork & Flow Invite</li>
+      <li><strong>2nd & 3rd Place:</strong> Recognition on Wall + Fork & Flow Community Invite</li>
+      <li><em>Note:</em> No participation certificates – Only for excellence!</li>
+    </ul>
+
+    <div class="section-title">🌐 Community</div>
+    <p>Top performers will receive exclusive invites to the <strong>Fork & Flow</strong> developer community for mentorship and future tech tracks.</p>
+
+    <div class="section-title">📅 Event Details</div>
+    <p>Summer Slams DSA25 is a national-level 24-hour online coding challenge organized by Fork & Flow Community. Participants will compete individually in a category of their choice (Easy, Medium, or Expert), solving 5 curated DSA problems within 2.5 hours.</p>
+
+    <div class="section-title">📝 Eligibility</div>
+    <ul>
+      <li>Open to all students, professionals, and coding enthusiasts across India.</li>
+      <li>No restrictions on college, year, or background.</li>
+      <li>Individual participation only (no teams).</li>
+      <li>Inter-college and inter-specialization not applicable, as it is solo only.</li>
+    </ul>
+
+    <div class="section-title">⏰ Event Timeline</div>
+    <ul>
+      <li><strong>Practice Round:</strong> 1 July 2025 (unranked)</li>
+      <li><strong>Main Event Start:</strong> 5 July 2025, 11:00 AM IST</li>
+      <li><strong>Main Event End:</strong> 6 July 2025, 11:00 AM IST</li>
+    </ul>
+
+    <div class="section-title">❓ Question Format</div>
+    <ul>
+      <li>5 DSA problems (2 Easy, 2 Medium, 1 Hard).</li>
+      <li>Auto-evaluated with partial scoring enabled.</li>
+      <li>Topics include arrays, recursion, graphs, trees, dynamic programming, etc.</li>
+    </ul>
+
+    <div class="section-title">📊 Scoring & Evaluation</div>
+    <ul>
+      <li>Total: 100 Points.</li>
+      <li>Partial marks awarded based on passed test cases.</li>
+      <li>No negative marking or penalties.</li>
+      <li>Final rankings are based on score + total time taken.</li>
+      <li>Results will be announced directly post-evaluation.</li>
+    </ul>
+
+    <div class="section-title">📜 Rules & Guidelines</div>
+    <ul>
+      <li>Participation is individual only.</li>
+      <li>Once the test is started, the 3-hour timer cannot be paused or resumed.</li>
+      <li>Each participant can attempt the contest only once.</li>
+      <li>Use of AI tools like ChatGPT, Copilot, etc., is strictly prohibited.</li>
+      <li>Plagiarism will result in immediate disqualification.</li>
+      <li>Participants must submit code within the contest platform only.</li>
+      <li>Practice round is for familiarity and not considered for ranking.</li>
+      <li>No resubmission or appeal post-event.</li>
+    </ul>
+
+    <div class="section-title">🏅 Rewards</div>
+    <p>Top 3 Winners will receive:</p>
+    <ul>
+      <li>Custom Certificate of Victory – Honoring 1st, 2nd, and 3rd place in each category.</li>
+      <li>Featured on the Official “Winner Wall” Microsite.</li>
+      <li>Exclusive Invitation to Join the Fork & Flow Community.</li>
+      <li>Priority Access to Future Events, Mentorship Opportunities, and Career Tracks.</li>
+      <li><em>Note:</em> No participation certificates will be issued. This is an excellence-focused contest.</li>
+    </ul>
+
+    <div class="section-title">💬 Communication & Support</div>
+    <p>All queries and coordination will happen on our official Discord server. Live support and clarifications during the event. Post-event feedback and testimonial form for top performers.</p>
+
+    <!-- Place this inside your .glass-wrapper div, ideally below the round details -->
+<a href="#register" class="register-btn">Register Now</a>
+
+<style>
+  .register-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #3b82f6;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+  }
+
+  .register-btn:hover {
+    background-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(59, 130, 246, 0.5);
+  }
+
+  .register-btn:active {
+    transform: scale(0.96);
+  }
+</style>
+
+    <footer>&copy; 2025 Summer Slams DSA25. Crafted with 💙 for innovators.</footer>
   </div>
 
   <script>
     const particleContainer = document.getElementById("particles-container");
-
     for (let i = 0; i < 60; i++) {
       const p = document.createElement("div");
       p.classList.add("particle");
