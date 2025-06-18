@@ -249,6 +249,49 @@ This is your chance to showcase your problem-solving skills, earn recognition, a
     <!-- Place this inside your .glass-wrapper div, ideally below the round details -->
 <a href="https://unstop.com/p/summer-slams-dsa25-national-level-dsa-coding-challenge-fork-flow-community-1502768" class="register-btn">Register Now</a>
 
+    <div class="section-title">⏳ Registration Starts In</div>
+<div id="countdown-timer" class="countdown-box">Loading...</div>
+
+<style>
+  .countdown-box {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #facc15;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 10px 20px;
+    border-radius: 12px;
+    margin-top: 10px;
+    box-shadow: 0 0 10px rgba(250, 204, 21, 0.2);
+  }
+</style>
+
+<script>
+  function updateCountdown() {
+    const targetDate = new Date("June 20, 2025 11:00:00 GMT+0530"); // IST
+    const now = new Date();
+    const diff = targetDate - now;
+
+    const countdownElement = document.getElementById("countdown-timer");
+
+    if (diff <= 0) {
+      countdownElement.innerHTML = "🎉 Registration is now open!";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+
+    countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+  }
+
+  // Initial call and then update every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+</script>
+
+
 <style>
   .register-btn {
     display: inline-block;
