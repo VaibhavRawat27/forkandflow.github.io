@@ -16,11 +16,9 @@
       font-family: 'Inter', sans-serif;
     }
 
-    body, html {
-      height: 100%;
-      width: 100%;
-      overflow-x: hidden;
+    body {
       background-color: #0a0a0a;
+      color: #fff;
       position: relative;
       z-index: 1;
     }
@@ -29,10 +27,8 @@
       position: fixed;
       width: 100%;
       height: 100%;
-      background: #0a0a0a;
+      background-color: #0a0a0a;
       z-index: 0;
-      top: 0;
-      left: 0;
     }
 
     main {
@@ -40,10 +36,12 @@
       z-index: 1;
     }
 
+    .circle-favicon { border-radius: 50%; }
+
     header {
       text-align: center;
       padding: 2rem 1rem 1rem;
-      background-color: rgba(17, 17, 17, 0.85);
+      background-color: rgba(17, 17, 17, 0.8);
     }
 
     header img {
@@ -58,9 +56,10 @@
     header p { font-size: 1.1rem; color: #ccc; margin-top: 0.5rem; }
 
     .marquee {
-      background-color: rgba(17, 17, 17, 0.85);
+      background-color: rgba(17, 17, 17, 0.8);
       padding: 1rem 0;
       overflow: hidden;
+      position: relative;
     }
 
     .marquee-content {
@@ -98,7 +97,6 @@
       margin: auto;
       background-color: rgba(0, 0, 0, 0.5);
       border-radius: 10px;
-      margin-top: 1rem;
     }
 
     section h2 {
@@ -145,7 +143,7 @@
     .register-button:hover { background-color: #00FFD1; }
 
     footer {
-      background-color: rgba(17, 17, 17, 0.85);
+      background-color: rgba(17, 17, 17, 0.8);
       text-align: center;
       padding: 1.5rem;
       color: #999;
@@ -255,46 +253,31 @@
     </footer>
   </main>
 
-  <!-- Load particles.js -->
+  <!-- Particles.js library -->
   <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
   <script>
     particlesJS("particles-js", {
-      particles: {
-        number: { value: 65, density: { enable: true, value_area: 800 } },
-        color: { value: "#aaffff" },
-        opacity: {
-          value: 0.15,
-          random: false,
-          anim: { enable: false }
+      "particles": {
+        "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#00FFD1" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": { "enable": true, "distance": 150, "color": "#00FFD1", "opacity": 0.4, "width": 1 },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": {
+          "onhover": { "enable": true, "mode": "grab" },
+          "onclick": { "enable": true, "mode": "push" }
         },
-        size: {
-          value: 3,
-          random: true
-        },
-        line_linked: {
-          enable: true,
-          distance: 120,
-          color: "#aaffff",
-          opacity: 0.08,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1,
-          direction: "none",
-          out_mode: "out"
+        "modes": {
+          "grab": { "distance": 140, "line_linked": { "opacity": 0.8 } },
+          "push": { "particles_nb": 4 }
         }
       },
-      interactivity: {
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: false }
-        },
-        modes: {
-          repulse: { distance: 100, duration: 0.4 }
-        }
-      },
-      retina_detect: true
+      "retina_detect": true
     });
   </script>
 </body>
